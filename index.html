@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Mayal | Papelería y Detalles</title>
+
+  <!-- GOOGLE FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins',sans-serif;
+    }
+
+    body{
+
+      background:#f7f7f7;
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      padding:30px 20px;
+      overflow-x:hidden;
+      position:relative;
+
+    }
+
+    /* FONDOS DECORATIVOS */
+
+    .background-shape1{
+
+      position:fixed;
+      width:320px;
+      height:320px;
+      background:#dff7fb;
+      border-radius:50%;
+      top:-150px;
+      left:-150px;
+      z-index:-1;
+
+    }
+
+    .background-shape2{
+
+      position:fixed;
+      width:250px;
+      height:250px;
+      background:#fff2dc;
+      border-radius:50%;
+      bottom:-120px;
+      right:-120px;
+      z-index:-1;
+
+    }
+
+    /* CONTENEDOR */
+
+    .container{
+
+      width:100%;
+      max-width:430px;
+      text-align:center;
+
+    }
+
+    /* LOGO */
+
+    .logo{
+
+      width:200px;
+      margin-bottom:15px;
+
+    }
+
+    /* TITULOS */
+
+    h1{
+
+      color:#35bfd1;
+      font-size:52px;
+      font-weight:700;
+      margin-bottom:5px;
+
+    }
+
+    h2{
+
+      color:#666;
+      font-size:20px;
+      font-weight:400;
+      margin-bottom:22px;
+
+    }
+
+    /* DESCRIPCION */
+
+    .description{
+
+      color:#666;
+      font-size:17px;
+      line-height:1.6;
+      margin-bottom:35px;
+      padding:0 10px;
+
+    }
+
+    /* TARJETAS */
+
+    .link-card{
+
+      width:100%;
+      background:white;
+      border-radius:28px;
+      padding:18px 20px;
+      margin-bottom:20px;
+      display:flex;
+      align-items:center;
+      text-decoration:none;
+      box-shadow:0 10px 25px rgba(0,0,0,0.06);
+      transition:0.25s;
+
+    }
+
+    .link-card:hover{
+
+      transform:translateY(-4px) scale(1.02);
+
+    }
+
+    /* ICONOS */
+
+    .icon{
+
+      width:65px;
+      height:65px;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      margin-right:18px;
+      flex-shrink:0;
+
+    }
+
+    .icon img{
+
+      width:34px;
+      height:34px;
+
+    }
+
+    /* COLORES */
+
+    .whatsapp{
+
+      background:#e8fff0;
+
+    }
+
+    .instagram{
+
+      background:#fff0f6;
+
+    }
+
+    .facebook{
+
+      background:#eef4ff;
+
+    }
+
+    .tiktok{
+
+      background:#f4f4f4;
+
+    }
+
+    .store{
+
+      background:#e9fbfd;
+
+    }
+
+    /* INFO LINKS */
+
+    .link-info{
+
+      text-align:left;
+      flex:1;
+
+    }
+
+    .link-info h3{
+
+      color:#222;
+      font-size:24px;
+      margin-bottom:4px;
+
+    }
+
+    .link-info p{
+
+      color:#777;
+      font-size:15px;
+
+    }
+
+    /* FLECHA */
+
+    .arrow{
+
+      font-size:32px;
+      color:#35bfd1;
+      margin-left:10px;
+
+    }
+
+    /* MENSAJE */
+
+    .thanks{
+
+      margin-top:30px;
+      color:#ff5d93;
+      font-size:28px;
+      font-weight:500;
+
+    }
+
+    /* FOOTER */
+
+    .footer{
+
+      margin-top:35px;
+      color:#777;
+      font-size:14px;
+      padding-bottom:30px;
+
+    }
+
+    /* RESPONSIVE */
+
+    @media(max-width:480px){
+
+      h1{
+
+        font-size:44px;
+
+      }
+
+      .link-info h3{
+
+        font-size:21px;
+
+      }
+
+      .link-card{
+
+        padding:16px;
+
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- FONDOS -->
+  <div class="background-shape1"></div>
+  <div class="background-shape2"></div>
+
+  <div class="container">
+
+    <!-- LOGO -->
+    <!-- CAMBIA "logo.png" POR EL NOMBRE DE TU IMAGEN -->
+    <img src="logo.png" class="logo">
+
+    <!-- TITULO -->
+    <h1>Mayal</h1>
+
+    <h2>Papelería y Detalles</h2>
+
+    <!-- DESCRIPCION -->
+
+    <p class="description">
+
+      Los detalles que necesitas ✨<br>
+      para cada momento especial.
+
+    </p>
+
+    <!-- WHATSAPP -->
+
+    <a href="https://wa.me/5219999999999"
+       class="link-card"
+       target="_blank">
+
+      <div class="icon whatsapp">
+
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
+
+      </div>
+
+      <div class="link-info">
+
+        <h3>WhatsApp</h3>
+
+        <p>Escríbenos directamente</p>
+
+      </div>
+
+      <div class="arrow">›</div>
+
+    </a>
+
+    <!-- INSTAGRAM -->
+
+    <a href="https://instagram.com/tuusuario"
+       class="link-card"
+       target="_blank">
+
+      <div class="icon instagram">
+
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">
+
+      </div>
+
+      <div class="link-info">
+
+        <h3>Instagram</h3>
+
+        <p>Síguenos en Instagram</p>
+
+      </div>
+
+      <div class="arrow">›</div>
+
+    </a>
+
+    <!-- FACEBOOK -->
+
+    <a href="https://facebook.com/tuusuario"
+       class="link-card"
+       target="_blank">
+
+      <div class="icon facebook">
+
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png">
+
+      </div>
+
+      <div class="link-info">
+
+        <h3>Facebook</h3>
+
+        <p>Visita nuestra página</p>
+
+      </div>
+
+      <div class="arrow">›</div>
+
+    </a>
+
+    <!-- TIKTOK -->
+
+    <a href="https://tiktok.com/@tuusuario"
+       class="link-card"
+       target="_blank">
+
+      <div class="icon tiktok">
+
+        <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png">
+
+      </div>
+
+      <div class="link-info">
+
+        <h3>TikTok</h3>
+
+        <p>Descubre nuestros videos</p>
+
+      </div>
+
+      <div class="arrow">›</div>
+
+    </a>
+
+    <!-- UBICACION -->
+
+    <a href="https://maps.google.com"
+       class="link-card"
+       target="_blank">
+
+      <div class="icon store">
+
+        <img src="https://cdn-icons-png.flaticon.com/512/684/684908.png">
+
+      </div>
+
+      <div class="link-info">
+
+        <h3>Visítanos</h3>
+
+        <p>Conoce nuestra tienda</p>
+
+      </div>
+
+      <div class="arrow">›</div>
+
+    </a>
+
+    <!-- MENSAJE FINAL -->
+
+    <div class="thanks">
+
+      ¡Gracias por apoyar lo local! 💖
+
+    </div>
+
+    <!-- FOOTER -->
+
+    <div class="footer">
+
+      © 2026 Mayal Papelería y Detalles
+
+    </div>
+
+  </div>
+
+</body>
+
+</html>
