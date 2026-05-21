@@ -8,8 +8,46 @@
 
   <title>Mayal | Papelería y Detalles</title>
 
+  <!-- FAVICON -->
+  <link rel="icon" href="https://archive.org/download/logo-mayal-mesa-de-trabajo-1/LOGO%20MAYAL_Mesa%20de%20trabajo%201.png">
+
+  <!-- GOOGLE ANALYTICS -->
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G49T0S9X1X"></script>
+
+  <script>
+
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag(){
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-G49T0S9X1X');
+
+  </script>
+
+  <!-- META TAGS PARA WHATSAPP / FACEBOOK -->
+
+  <meta property="og:title" content="Mayal | Papelería y Detalles">
+
+  <meta property="og:description"
+        content="Los detalles que necesitas ✨ para cada momento especial.">
+
+  <meta property="og:image"
+        content="https://archive.org/download/logo-mayal-mesa-de-trabajo-1/LOGO%20MAYAL_Mesa%20de%20trabajo%201.png">
+
+  <meta property="og:url"
+        content="https://mayalpapeleriaydetalles.github.io/links/">
+
+  <meta property="og:type" content="website">
+
   <!-- GOOGLE FONTS -->
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
+
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -25,7 +63,12 @@
 
     body{
 
-      background:#f7f7f7;
+      background:linear-gradient(
+        180deg,
+        #ffffff,
+        #f8fbff
+      );
+
       min-height:100vh;
       display:flex;
       justify-content:center;
@@ -71,6 +114,22 @@
       max-width:430px;
       text-align:center;
 
+      animation:aparecer 0.8s ease;
+
+    }
+
+    @keyframes aparecer{
+
+      from{
+        opacity:0;
+        transform:translateY(20px);
+      }
+
+      to{
+        opacity:1;
+        transform:translateY(0px);
+      }
+
     }
 
     /* LOGO */
@@ -79,26 +138,6 @@
 
       width:200px;
       margin-bottom:15px;
-
-    }
-
-    /* TITULOS */
-
-    h1{
-
-      color:#35bfd1;
-      font-size:52px;
-      font-weight:700;
-      margin-bottom:5px;
-
-    }
-
-    h2{
-
-      color:#666;
-      font-size:20px;
-      font-weight:400;
-      margin-bottom:22px;
 
     }
 
@@ -133,7 +172,8 @@
 
     .link-card:hover{
 
-      transform:translateY(-4px) scale(1.02);
+      transform:translateY(-5px) scale(1.03);
+      box-shadow:0 15px 35px rgba(0,0,0,0.12);
 
     }
 
@@ -162,33 +202,23 @@
     /* COLORES */
 
     .whatsapp{
-
       background:#e8fff0;
-
     }
 
     .instagram{
-
       background:#fff0f6;
-
     }
 
     .facebook{
-
       background:#eef4ff;
-
     }
 
     .tiktok{
-
       background:#f4f4f4;
-
     }
 
     .store{
-
       background:#e9fbfd;
-
     }
 
     /* INFO LINKS */
@@ -251,22 +281,12 @@
 
     @media(max-width:480px){
 
-      h1{
-
-        font-size:44px;
-
-      }
-
       .link-info h3{
-
         font-size:21px;
-
       }
 
       .link-card{
-
         padding:16px;
-
       }
 
     }
@@ -284,13 +304,9 @@
   <div class="container">
 
     <!-- LOGO -->
-    <!-- CAMBIA "logo.png" POR EL NOMBRE DE TU IMAGEN -->
-    <img src="https://archive.org/download/logo-mayal-mesa-de-trabajo-1/LOGO%20MAYAL_Mesa%20de%20trabajo%201.png" class="logo">
 
-    <!-- TITULO -->
-  <!--   <h1>Mayaleee</h1> --> 
-
-  <!--   <h2>Papelería y Detalleeees</h2> --> 
+    <img src="https://archive.org/download/logo-mayal-mesa-de-trabajo-1/LOGO%20MAYAL_Mesa%20de%20trabajo%201.png"
+         class="logo">
 
     <!-- DESCRIPCION -->
 
