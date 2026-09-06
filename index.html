@@ -153,17 +153,28 @@
 
     }
 
-    /* GIF */
+    /* GIF - Contenedor y estilos mejorados */
 
-    .gif-banner{
+    .gif-container{
 
       width:100%;
       border-radius:28px;
       margin-top:10px;
       margin-bottom:28px;
-
+      overflow:hidden;
       box-shadow:0 10px 25px rgba(0,0,0,0.08);
+      background:#f8f8f8; /* fondo de respaldo mientras carga */
+      aspect-ratio: 1/1; /* mantiene proporción cuadrada (368x368) */
+      display:flex;
+      align-items:center;
+      justify-content:center;
 
+    }
+
+    .gif-banner{
+
+      width:100%;
+      height:100%;
       display:block;
       object-fit:cover;
 
@@ -301,7 +312,7 @@
 
     @media(max-width:480px){
 
-      .gif-banner{
+      .gif-container{
 
         border-radius:22px;
 
@@ -516,11 +527,89 @@
 
     </a>
 
-    <!-- GIF -->
+    <!-- GIF EN SECUENCIA - Reemplaza al anterior -->
 
-    <img class="gif-banner"
+    <div class="gif-container">
+      <img class="gif-banner"
+           id="mayalGif"
+           src="https://ia600106.us.archive.org/14/items/whats-app-video-2026-09-06-at-1.19.39-pm/WhatsApp-Video-2026-09-06-at-1.19.39-PM.gif"
+           alt="Mayal Papelería y Detalles">
+    </div>
 
-    src="https://ia903108.us.archive.org/34/items/gif-para-mayal/GIF%20PARA%20MAYAL.gif">
+    <script>
+    (function() {
+      const gifs = [
+        "https://ia600106.us.archive.org/14/items/whats-app-video-2026-09-06-at-1.19.39-pm/WhatsApp-Video-2026-09-06-at-1.19.39-PM.gif",
+        "https://ia601909.us.archive.org/25/items/whats-app-video-2026-09-06-at-1.19.37-pm/WhatsApp-Video-2026-09-06-at-1.19.37-PM.gif",
+        "https://ia601900.us.archive.org/11/items/whats-app-video-2026-09-06-at-1.19.39-pm-1/WhatsApp-Video-2026-09-06-at-1.19.39-PM-_1_.gif"
+      ];
+
+      const DURACION_APROX = 4900; // 4.9 segundos
+      let indiceActual = 0;
+      let indiceSiguiente = 1;
+      let siguienteListo = false;
+      let temporizador = null;
+      let esperandoCarga = false;
+
+      const img = document.getElementById('mayalGif');
+
+      // Precarga el siguiente GIF
+      function precargarSiguiente() {
+        siguienteListo = false;
+        const pre = new Image();
+        pre.onload = function() {
+          siguienteListo = true;
+          // Si estábamos esperando que cargue, cambiamos ahora mismo
+          if (esperandoCarga) {
+            esperandoCarga = false;
+            cambiarAhora();
+          }
+        };
+        pre.onerror = function() {
+          // Si falla, reintentamos en 2 segundos
+          setTimeout(precargarSiguiente, 2000);
+        };
+        pre.src = gifs[indiceSiguiente];
+      }
+
+      // Cambia al siguiente GIF disponible
+      function cambiarAhora() {
+        if (siguienteListo) {
+          indiceActual = indiceSiguiente;
+          indiceSiguiente = (indiceActual + 1) % gifs.length;
+          img.src = gifs[indiceActual];
+          precargarSiguiente();
+          esperandoCarga = false;
+          programarSiguiente();
+        } else {
+          // Si no está listo, esperamos 0.5s y reintentamos
+          esperandoCarga = true;
+          setTimeout(cambiarAhora, 500);
+        }
+      }
+
+      function programarSiguiente() {
+        if (temporizador) clearTimeout(temporizador);
+        temporizador = setTimeout(function() {
+          cambiarAhora();
+        }, DURACION_APROX);
+      }
+
+      // Iniciamos: precargamos el GIF 2 y programamos el primer cambio
+      precargarSiguiente();
+      programarSiguiente();
+
+      // Si la pestaña se oculta, pausamos los temporizadores para no desincronizar
+      document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+          if (temporizador) clearTimeout(temporizador);
+        } else {
+          programarSiguiente();
+        }
+      });
+
+    })();
+    </script>
 
     <!-- MENSAJE FINAL -->
 
