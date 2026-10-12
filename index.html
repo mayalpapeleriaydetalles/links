@@ -153,6 +153,171 @@
 
     }
 
+    /* HORARIO LABORAL */
+
+    .schedule{
+
+      background:linear-gradient(135deg, #e9fbfd 0%, #fff2dc 100%);
+      border-radius:24px;
+      padding:20px 22px;
+      margin-bottom:35px;
+      box-shadow:0 8px 20px rgba(0,0,0,0.05);
+      text-align:left;
+
+    }
+
+    .schedule-title{
+
+      font-size:17px;
+      font-weight:600;
+      color:#35bfd1;
+      text-align:center;
+      margin-bottom:15px;
+      letter-spacing:0.3px;
+
+    }
+
+    /* INDICADOR DE ESTADO (LED) */
+
+    .status-badge{
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:10px 16px;
+      border-radius:16px;
+      margin-bottom:16px;
+      font-size:14px;
+      font-weight:500;
+      text-align:center;
+      transition:0.3s;
+      background:#f1f1f1;
+      color:#666;
+
+    }
+
+    .status-badge .led{
+
+      width:12px;
+      height:12px;
+      border-radius:50%;
+      background:#bbb;
+      flex-shrink:0;
+      box-shadow:0 0 0 rgba(0,0,0,0);
+
+    }
+
+    /* ABIERTO - LED VERDE */
+
+    .status-badge.abierto{
+
+      background:#e8fff0;
+      color:#1a8f4a;
+
+    }
+
+    .status-badge.abierto .led{
+
+      background:#22c55e;
+      animation:pulsoVerde 1.6s infinite;
+
+    }
+
+    @keyframes pulsoVerde{
+
+      0%{
+        box-shadow:0 0 0 0 rgba(34,197,94,0.6);
+      }
+
+      70%{
+        box-shadow:0 0 0 10px rgba(34,197,94,0);
+      }
+
+      100%{
+        box-shadow:0 0 0 0 rgba(34,197,94,0);
+      }
+
+    }
+
+    /* CERRADO - LED ROJO */
+
+    .status-badge.cerrado{
+
+      background:#ffe9ef;
+      color:#c81e4a;
+
+    }
+
+    .status-badge.cerrado .led{
+
+      background:#ef4444;
+      animation:pulsoRojo 1.6s infinite;
+
+    }
+
+    @keyframes pulsoRojo{
+
+      0%{
+        box-shadow:0 0 0 0 rgba(239,68,68,0.6);
+      }
+
+      70%{
+        box-shadow:0 0 0 10px rgba(239,68,68,0);
+      }
+
+      100%{
+        box-shadow:0 0 0 0 rgba(239,68,68,0);
+      }
+
+    }
+
+    .schedule-item{
+
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:10px;
+      padding:8px 0;
+      border-bottom:1px dashed rgba(0,0,0,0.07);
+      font-size:15px;
+
+    }
+
+    .schedule-item:last-child{
+      border-bottom:none;
+    }
+
+    .schedule-day{
+
+      font-weight:600;
+      color:#222;
+      flex-shrink:0;
+
+    }
+
+    .schedule-hours{
+
+      color:#666;
+      text-align:right;
+      line-height:1.5;
+
+    }
+
+    .schedule-hours small{
+
+      color:#888;
+      font-size:13px;
+
+    }
+
+    .schedule-hours.closed{
+
+      color:#ff5d93;
+      font-weight:600;
+
+    }
+
     /* GIF - Contenedor y estilos mejorados */
 
     .gif-container{
@@ -318,6 +483,26 @@
 
       }
 
+      .schedule{
+
+        padding:18px 18px;
+
+      }
+
+      .schedule-item{
+
+        font-size:14px;
+
+      }
+
+      .status-badge{
+
+        font-size:13px;
+
+        padding:9px 12px;
+
+      }
+
       .link-info h3{
         font-size:21px;
       }
@@ -353,6 +538,41 @@
       para cada momento especial.
 
     </p>
+
+    <!-- HORARIO LABORAL -->
+
+    <div class="schedule">
+
+      <div class="schedule-title">
+        🕐 Horario de atención
+      </div>
+
+      <!-- INDICADOR DE ESTADO -->
+
+      <div id="estadoServicio" class="status-badge">
+        <span class="led"></span>
+        <span id="estadoTexto">Verificando horario...</span>
+      </div>
+
+      <div class="schedule-item">
+        <span class="schedule-day">Lunes a Viernes</span>
+        <span class="schedule-hours">
+          7:30 am – 9:30 am<br>
+          12:30 pm – 8:30 pm
+        </span>
+      </div>
+
+      <div class="schedule-item">
+        <span class="schedule-day">Sábado</span>
+        <span class="schedule-hours closed">Cerrado</span>
+      </div>
+
+      <div class="schedule-item">
+        <span class="schedule-day">Domingo</span>
+        <span class="schedule-hours">3:00 pm – 8:00 pm</span>
+      </div>
+
+    </div>
 
     <!-- WHATSAPP -->
 
@@ -527,7 +747,7 @@
 
     </a>
 
-    <!-- GIF EN SECUENCIA - Reemplaza al anterior -->
+    <!-- GIF EN SECUENCIA -->
 
     <div class="gif-container">
       <img class="gif-banner"
@@ -607,6 +827,74 @@
           programarSiguiente();
         }
       });
+
+    })();
+    </script>
+
+    <!-- SCRIPT DE ESTADO (LED VERDE/ROJO) -->
+
+    <script>
+    (function() {
+
+      // Horario de atención
+      // 0 = Domingo, 1 = Lunes, ... 6 = Sábado
+      const horario = {
+        1: [ {inicio: "07:30", fin: "09:30"}, {inicio: "12:30", fin: "20:30"} ], // Lunes
+        2: [ {inicio: "07:30", fin: "09:30"}, {inicio: "12:30", fin: "20:30"} ], // Martes
+        3: [ {inicio: "07:30", fin: "09:30"}, {inicio: "12:30", fin: "20:30"} ], // Miércoles
+        4: [ {inicio: "07:30", fin: "09:30"}, {inicio: "12:30", fin: "20:30"} ], // Jueves
+        5: [ {inicio: "07:30", fin: "09:30"}, {inicio: "12:30", fin: "20:30"} ], // Viernes
+        6: [],                                                                   // Sábado cerrado
+        0: [ {inicio: "15:00", fin: "20:00"} ]                                   // Domingo
+      };
+
+      function ahoraEnMinutos(fecha) {
+        return fecha.getHours() * 60 + fecha.getMinutes();
+      }
+
+      function horaEnMinutos(hhmm) {
+        const partes = hhmm.split(":");
+        return Number(partes[0]) * 60 + Number(partes[1]);
+      }
+
+      function estaAbierto(fecha) {
+        const dia = fecha.getDay();
+        const rangos = horario[dia] || [];
+        const ahora = ahoraEnMinutos(fecha);
+
+        return rangos.some(function(r) {
+          const inicio = horaEnMinutos(r.inicio);
+          const fin = horaEnMinutos(r.fin);
+          return ahora >= inicio && ahora < fin;
+        });
+      }
+
+      function actualizarEstado() {
+
+        const badge = document.getElementById("estadoServicio");
+        const texto = document.getElementById("estadoTexto");
+
+        if (!badge || !texto) return;
+
+        const abierto = estaAbierto(new Date());
+
+        if (abierto) {
+          badge.classList.remove("cerrado");
+          badge.classList.add("abierto");
+          texto.textContent = "¡Estamos en servicio! 😊✨";
+        } else {
+          badge.classList.remove("abierto");
+          badge.classList.add("cerrado");
+          texto.textContent = "Fuera del horario de servicio 😴💤";
+        }
+
+      }
+
+      // Ejecutar al cargar
+      actualizarEstado();
+
+      // Actualizar cada minuto
+      setInterval(actualizarEstado, 60000);
 
     })();
     </script>
