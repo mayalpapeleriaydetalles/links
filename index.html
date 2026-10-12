@@ -137,30 +137,18 @@
     .logo{
 
       width:200px;
-      margin-bottom:15px;
+      margin-bottom:10px;
 
     }
 
-    /* DESCRIPCION */
-
-    .description{
-
-      color:#666;
-      font-size:17px;
-      line-height:1.6;
-      margin-bottom:35px;
-      padding:0 10px;
-
-    }
-
-    /* HORARIO LABORAL */
+    /* HORARIO LABORAL (compacto) */
 
     .schedule{
 
       background:linear-gradient(135deg, #e9fbfd 0%, #fff2dc 100%);
-      border-radius:24px;
-      padding:20px 22px;
-      margin-bottom:35px;
+      border-radius:20px;
+      padding:14px 18px;
+      margin-bottom:20px;
       box-shadow:0 8px 20px rgba(0,0,0,0.05);
       text-align:left;
 
@@ -168,11 +156,11 @@
 
     .schedule-title{
 
-      font-size:17px;
+      font-size:14px;
       font-weight:600;
       color:#35bfd1;
       text-align:center;
-      margin-bottom:15px;
+      margin-bottom:10px;
       letter-spacing:0.3px;
 
     }
@@ -184,11 +172,11 @@
       display:flex;
       align-items:center;
       justify-content:center;
-      gap:10px;
-      padding:10px 16px;
-      border-radius:16px;
-      margin-bottom:16px;
-      font-size:14px;
+      gap:8px;
+      padding:7px 12px;
+      border-radius:14px;
+      margin-bottom:10px;
+      font-size:12.5px;
       font-weight:500;
       text-align:center;
       transition:0.3s;
@@ -199,8 +187,8 @@
 
     .status-badge .led{
 
-      width:12px;
-      height:12px;
+      width:10px;
+      height:10px;
       border-radius:50%;
       background:#bbb;
       flex-shrink:0;
@@ -231,7 +219,7 @@
       }
 
       70%{
-        box-shadow:0 0 0 10px rgba(34,197,94,0);
+        box-shadow:0 0 0 8px rgba(34,197,94,0);
       }
 
       100%{
@@ -263,7 +251,7 @@
       }
 
       70%{
-        box-shadow:0 0 0 10px rgba(239,68,68,0);
+        box-shadow:0 0 0 8px rgba(239,68,68,0);
       }
 
       100%{
@@ -277,10 +265,10 @@
       display:flex;
       justify-content:space-between;
       align-items:flex-start;
-      gap:10px;
-      padding:8px 0;
+      gap:8px;
+      padding:5px 0;
       border-bottom:1px dashed rgba(0,0,0,0.07);
-      font-size:15px;
+      font-size:13px;
 
     }
 
@@ -300,14 +288,14 @@
 
       color:#666;
       text-align:right;
-      line-height:1.5;
+      line-height:1.4;
 
     }
 
     .schedule-hours small{
 
       color:#888;
-      font-size:13px;
+      font-size:11.5px;
 
     }
 
@@ -315,33 +303,6 @@
 
       color:#ff5d93;
       font-weight:600;
-
-    }
-
-    /* GIF - Contenedor y estilos mejorados */
-
-    .gif-container{
-
-      width:100%;
-      border-radius:28px;
-      margin-top:10px;
-      margin-bottom:28px;
-      overflow:hidden;
-      box-shadow:0 10px 25px rgba(0,0,0,0.08);
-      background:#f8f8f8; /* fondo de respaldo mientras carga */
-      aspect-ratio: 1/1; /* mantiene proporción cuadrada (368x368) */
-      display:flex;
-      align-items:center;
-      justify-content:center;
-
-    }
-
-    .gif-banner{
-
-      width:100%;
-      height:100%;
-      display:block;
-      object-fit:cover;
 
     }
 
@@ -451,6 +412,45 @@
 
     }
 
+    /* GIF - Contenedor y estilos mejorados */
+
+    .gif-container{
+
+      width:100%;
+      border-radius:28px;
+      margin-top:10px;
+      margin-bottom:18px;
+      overflow:hidden;
+      box-shadow:0 10px 25px rgba(0,0,0,0.08);
+      background:#f8f8f8;
+      aspect-ratio: 1/1;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+
+    }
+
+    .gif-banner{
+
+      width:100%;
+      height:100%;
+      display:block;
+      object-fit:cover;
+
+    }
+
+    /* DESCRIPCION */
+
+    .description{
+
+      color:#666;
+      font-size:16px;
+      line-height:1.6;
+      margin-bottom:25px;
+      padding:0 10px;
+
+    }
+
     /* MENSAJE */
 
     .thanks{
@@ -485,21 +485,41 @@
 
       .schedule{
 
-        padding:18px 18px;
+        padding:12px 15px;
+
+      }
+
+      .schedule-title{
+
+        font-size:13px;
+
+        margin-bottom:8px;
 
       }
 
       .schedule-item{
 
-        font-size:14px;
+        font-size:12.5px;
+
+        padding:4px 0;
 
       }
 
       .status-badge{
 
-        font-size:13px;
+        font-size:12px;
 
-        padding:9px 12px;
+        padding:6px 10px;
+
+        margin-bottom:8px;
+
+      }
+
+      .description{
+
+        font-size:15px;
+
+        margin-bottom:20px;
 
       }
 
@@ -525,21 +545,12 @@
 
   <div class="container">
 
-    <!-- LOGO -->
+    <!-- 1. LOGO -->
 
     <img src="https://archive.org/download/logo-mayal-mesa-de-trabajo-1/LOGO%20MAYAL_Mesa%20de%20trabajo%201.png"
          class="logo">
 
-    <!-- DESCRIPCION -->
-
-    <p class="description">
-
-      Los detalles que necesitas ✨<br>
-      para cada momento especial.
-
-    </p>
-
-    <!-- HORARIO LABORAL -->
+    <!-- 2. HORARIO LABORAL -->
 
     <div class="schedule">
 
@@ -574,7 +585,7 @@
 
     </div>
 
-    <!-- WHATSAPP -->
+    <!-- 3. WHATSAPP -->
 
     <a href="https://wa.me/5212219280380"
        class="link-card"
@@ -603,7 +614,7 @@
 
     </a>
 
-    <!-- INSTAGRAM -->
+    <!-- 4. INSTAGRAM -->
 
     <a href="https://www.instagram.com/mayalpapeleriaydetalles?igsh=ZTJ2bXUwM3Vna2wz"
        class="link-card"
@@ -632,7 +643,7 @@
 
     </a>
 
-    <!-- FACEBOOK -->
+    <!-- 5. FACEBOOK -->
 
     <a href="https://www.facebook.com/share/1CPPHuPFra/"
        class="link-card"
@@ -661,7 +672,7 @@
 
     </a>
 
-    <!-- TIKTOK -->
+    <!-- 6. TIKTOK -->
 
     <a href="https://www.tiktok.com/@mayalpapeleriaydetalles?_r=1&_t=ZS-96VDC4Z5k5V"
        class="link-card"
@@ -690,7 +701,7 @@
 
     </a>
 
-    <!-- CORREO ELECTRÓNICO -->
+    <!-- 7. CORREO ELECTRÓNICO -->
 
     <a href="mailto:mayalpapeleriaydetalles@gmail.com"
        class="link-card"
@@ -718,7 +729,7 @@
 
     </a>
 
-    <!-- UBICACION -->
+    <!-- 8. UBICACION -->
 
     <a href="https://maps.app.goo.gl/ssmUbFQTsQ3tWb5P6"
        class="link-card"
@@ -747,7 +758,7 @@
 
     </a>
 
-    <!-- GIF EN SECUENCIA -->
+    <!-- 9. GIF EN SECUENCIA -->
 
     <div class="gif-container">
       <img class="gif-banner"
@@ -755,6 +766,17 @@
            src="https://ia600106.us.archive.org/14/items/whats-app-video-2026-09-06-at-1.19.39-pm/WhatsApp-Video-2026-09-06-at-1.19.39-PM.gif"
            alt="Mayal Papelería y Detalles">
     </div>
+
+    <!-- 10. DESCRIPCION -->
+
+    <p class="description">
+
+      Los detalles que necesitas ✨<br>
+      para cada momento especial.
+
+    </p>
+
+    <!-- SCRIPT DE GIFS EN SECUENCIA -->
 
     <script>
     (function() {
@@ -773,26 +795,22 @@
 
       const img = document.getElementById('mayalGif');
 
-      // Precarga el siguiente GIF
       function precargarSiguiente() {
         siguienteListo = false;
         const pre = new Image();
         pre.onload = function() {
           siguienteListo = true;
-          // Si estábamos esperando que cargue, cambiamos ahora mismo
           if (esperandoCarga) {
             esperandoCarga = false;
             cambiarAhora();
           }
         };
         pre.onerror = function() {
-          // Si falla, reintentamos en 2 segundos
           setTimeout(precargarSiguiente, 2000);
         };
         pre.src = gifs[indiceSiguiente];
       }
 
-      // Cambia al siguiente GIF disponible
       function cambiarAhora() {
         if (siguienteListo) {
           indiceActual = indiceSiguiente;
@@ -802,7 +820,6 @@
           esperandoCarga = false;
           programarSiguiente();
         } else {
-          // Si no está listo, esperamos 0.5s y reintentamos
           esperandoCarga = true;
           setTimeout(cambiarAhora, 500);
         }
@@ -815,11 +832,9 @@
         }, DURACION_APROX);
       }
 
-      // Iniciamos: precargamos el GIF 2 y programamos el primer cambio
       precargarSiguiente();
       programarSiguiente();
 
-      // Si la pestaña se oculta, pausamos los temporizadores para no desincronizar
       document.addEventListener('visibilitychange', function() {
         if (document.hidden) {
           if (temporizador) clearTimeout(temporizador);
@@ -836,14 +851,12 @@
     <script>
     (function() {
 
-      // Horario de atención
-      // 0 = Domingo, 1 = Lunes, ... 6 = Sábado
       const horario = {
-        1: [ {inicio: "07:30", fin: "09:30"}, {inicio: "12:30", fin: "20:30"} ], // Lunes
-        2: [ {inicio: "07:30", fin: "09:30"}, {inicio: "12:30", fin: "20:30"} ], // Martes
-        3: [ {inicio: "07:30", fin: "09:30"}, {inicio: "12:30", fin: "20:30"} ], // Miércoles
-        4: [ {inicio: "07:30", fin: "09:30"}, {inicio: "12:30", fin: "20:30"} ], // Jueves
-        5: [ {inicio: "07:30", fin: "09:30"}, {inicio: "12:30", fin: "20:30"} ], // Viernes
+        1: [ {inicio: "07:30", fin: "09:30"}, {inicio: "12:30", fin: "20:00"} ], // Lunes
+        2: [ {inicio: "07:30", fin: "09:30"}, {inicio: "12:30", fin: "20:00"} ], // Martes
+        3: [ {inicio: "07:30", fin: "09:30"}, {inicio: "12:30", fin: "20:00"} ], // Miércoles
+        4: [ {inicio: "07:30", fin: "09:30"}, {inicio: "12:30", fin: "20:00"} ], // Jueves
+        5: [ {inicio: "07:30", fin: "09:30"}, {inicio: "12:30", fin: "20:00"} ], // Viernes
         6: [],                                                                   // Sábado cerrado
         0: [ {inicio: "15:00", fin: "20:00"} ]                                   // Domingo
       };
@@ -890,16 +903,13 @@
 
       }
 
-      // Ejecutar al cargar
       actualizarEstado();
-
-      // Actualizar cada minuto
       setInterval(actualizarEstado, 60000);
 
     })();
     </script>
 
-    <!-- MENSAJE FINAL -->
+    <!-- 11. MENSAJE FINAL -->
 
     <div class="thanks">
 
